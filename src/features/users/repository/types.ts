@@ -1,8 +1,8 @@
-import { type UserStructureWithoutPassword } from "../types";
+import {
+  type UserStructure,
+  type UserStructureWithoutPassword,
+} from "../types";
 
 export interface UsersRepository {
-  getUser(
-    username: string,
-    password: string,
-  ): Promise<UserStructureWithoutPassword>;
+  getUser(username: string, password: string): Promise<UserStructure>;
 }
