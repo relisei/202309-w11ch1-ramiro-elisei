@@ -1,5 +1,5 @@
 import bcrypt from "bcrypt";
-import { type UserStructureWithoutPassword } from "../types";
+import { type UserStructure } from "../types";
 import { type UsersRepository } from "./types";
 import User from "../model/User.js";
 
@@ -7,7 +7,7 @@ class UserMongooseRepository implements UsersRepository {
   public async getUser(
     username: string,
     password: string,
-  ): Promise<UserStructureWithoutPassword> {
+  ): Promise<UserStructure> {
     try {
       const user = await User.findOne({ username });
 
