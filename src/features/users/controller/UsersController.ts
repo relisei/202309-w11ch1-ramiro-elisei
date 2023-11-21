@@ -1,19 +1,12 @@
 import { type Request, type Response } from "express";
 import { type UsersRepository } from "../repository/types";
-import { type UserStructure } from "../types";
+import { type UserCredentialsRequest } from "../types";
 import { type JwtPayload } from "jsonwebtoken";
 import jwt from "jsonwebtoken";
 
 class UserController {
   constructor(private readonly usersRepository: UsersRepository) {}
-  loginUser = async (
-    req: Request<
-      Record<string, unknown>,
-      Record<string, unknown>,
-      UserStructure
-    >,
-    res: Response,
-  ) => {
+  loginUser = async (req: UserCredentialsRequest, res: Response) => {
     const { username, password } = req.body;
 
     try {
