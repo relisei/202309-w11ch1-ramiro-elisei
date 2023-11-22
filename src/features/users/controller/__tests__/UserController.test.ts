@@ -1,8 +1,8 @@
 import { type Response, type Request } from "express";
-import { type UserCredentialsRequest, UserStructure } from "../types";
-import { type UsersRepository } from "../repository/types";
-import UserController from "./UsersController";
+import { type UsersRepository } from "../../repository/types";
 import jwt from "jsonwebtoken";
+import { type UserCredentialsRequest } from "../../types";
+import UserController from "../UsersController";
 
 beforeAll(() => {
   jest.clearAllMocks();
