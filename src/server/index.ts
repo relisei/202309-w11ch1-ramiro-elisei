@@ -6,10 +6,14 @@ import mechasRouter from "../features/mechas/router/mechasRouter.js";
 import cors from "cors";
 import { corsOptions } from "./utils/cords.js";
 import usersRouter from "../features/users/router/usersRouter.js";
+import { generalError, notFound } from "./middleware/errorMiddlewares.js";
 
 app.use(morgan("dev"));
 app.use(cors(corsOptions));
 app.use(express.json());
+
 app.use("/mechas", mechasRouter);
 app.use("/login", usersRouter);
 app.get("/", pingRouter);
+app.use(notFound);
+app.use(generalError);
